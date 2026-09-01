@@ -1,0 +1,7 @@
+.minDiv{
+    border: 5px solid black;
+}
+
+.left, .right{
+    border: 2px solid black;
+}
