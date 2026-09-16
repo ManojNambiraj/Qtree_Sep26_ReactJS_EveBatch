@@ -18,5 +18,5 @@ function UserApp() {
 
 export default UserApp
 
-// Create   Read    Update    Delete
-// POST     GET     PUT        DELETE
+// Create   Read    Update     Delete   --> CRUD
+// POST     GET     PUT        DELETE  --> HTTP Methods

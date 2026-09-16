@@ -1,23 +1,27 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 function UserList() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
-    getData();
+    userData();
   }, []);
 
-  const getData = async () => {
-    const userData = await axios.get(
-      `https://6aa949902d442cb69d499f23.mockapi.io/users`,
+  const userData = async () => {
+    let Datas = await axios.get(
+      `https://6aaa9af2ff4dd5698b4ece9f.mockapi.io/users`,
     );
 
-    setUsers(userData.data);
+    setUsers(Datas.data);
   };
 
   return (
     <div>
+      <Link to={"/create"} className="btn btn-primary m-2">
+        Create user
+      </Link>
       <table class="table">
         <thead>
           <tr>
