@@ -17,6 +17,16 @@ function UserList() {
     setUsers(Datas.data);
   };
 
+  const handleDelete = async (id) => {
+    let DeletedData = await axios.delete(
+      `https://6aaa9af2ff4dd5698b4ece9f.mockapi.io/users/${id}`,
+    );
+
+    if (DeletedData) {
+      userData();
+    }
+  };
+
   return (
     <div>
       <Link to={"/create"} className="btn btn-primary m-2">
@@ -31,6 +41,7 @@ function UserList() {
             <th scope="col">Mobile</th>
             <th scope="col">Email</th>
             <th scope="col">Password</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -43,6 +54,22 @@ function UserList() {
                 <td>{item.mobile}</td>
                 <td>{item.email}</td>
                 <td>{item.password}</td>
+                <td>
+                  <Link
+                    to={`/edit/${item.id}`}
+                    className="btn btn-warning btn-sm"
+                  >
+                    Edit
+                  </Link>
+                  <button
+                    onClick={() => {
+                      handleDelete(item.id);
+                    }}
+                    className="btn btn-danger btn-sm"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             );
           })}

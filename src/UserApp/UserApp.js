@@ -10,7 +10,7 @@ function UserApp() {
         <Routes>
             <Route path='/' element={<UserList />} />
             <Route path='/create' element={<CreateUser />} />
-            <Route path='/edit' element={<UpdateUser />} />
+            <Route path='/edit/:id' element={<UpdateUser />} />
         </Routes>
     </BrowserRouter>
   )
@@ -19,4 +19,4 @@ function UserApp() {
 export default UserApp
 
 // Create   Read    Update     Delete   --> CRUD
-// POST     GET     PUT        DELETE  --> HTTP Methods
+// POST     GET     PUT        DELETE   --> HTTP Methods
